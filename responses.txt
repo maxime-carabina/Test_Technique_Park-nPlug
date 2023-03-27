@@ -1,0 +1,139 @@
+1) C'est la fonction "split".
+
+2) Le concept de porté "scope" correspond à la portion du code dans laquelle une variable peut être utilisé.
+
+Exemple où "x" à une portée globale :
+
+```
+const x = 1
+
+function test() {
+    console.log(x);
+}
+
+test() // affiche 1
+```
+
+Exemple où "x" à une portée globale :
+
+```
+function test() {
+    const x = 1
+    console.log(x);
+}
+
+test() // affiche 1
+
+console.log(x) // affiche une erreur
+```
+
+3) Les mots-clés "async" et "await" sont utilisés pour des fonctions asynchrones. Ces fonctions renvoient une "promise" (promesse) et sont utilisées pour effectuer des actions :
+    - appel API
+    - accès à une base de données
+    - requêtes réseaux
+
+4) La fonction "callback" est une fonction qui est passée en argument d'une autre fonction comme argument et qui sera effectué ultérieurement. Elle est souvent utilisée lorsqu'une opération asynchrone a été terminée ou lorsqu'un évènement s'est produit.
+
+Exemple :
+
+```
+function fetchData(url, callback) {
+  fetch(url)
+    .then(response => response.json())
+    .then(data => callback(data))
+    .catch(error => console.error(error));
+}
+
+fetchData('https://api.com/data', function(data) {
+  console.log(data);
+});
+```
+
+Ici, "callback" sera appelé pour renvoyé les données présentes dans "data".
+
+5) La fonction pour ontenir le type d'une variable est "typeof".
+
+6) AngularJS est un framework Javasript développé pour la création d'applications web dynamiques et intéractives. Il est basé sur le modèle MVC (Modèle Vue Contrôleur), afin de créer des composants réutilisables.
+L'architecture est constituée de plusieurs concepts clés :
+    - Contrôleurs : représente la couche qui a la logique métier. Les événements utilisateur déclenchent les fonctions stockées dans votre contrôleur. Les événements utilisateur font partie du contrôleur.
+    - Vues : sont utilisées pour représenter la couche de présentation qui est fournie aux utilisateurs finaux.
+    - Modèles : sont utilisés pour représenter vos données. Les données de votre modèle peuvent être aussi simples que d’avoir simplement des déclarations primitives.
+
+7) une directive est un élément HTML personnalisé qui peut être utilisé pour étendre les fonctionnalités de HTML. Les directives sont utilisées pour manipuler le DOM, ajouter des comportements personnalisés, lier des données, etc. Elles peuvent être utilisées comme des éléments, des attributs, des classes CSS ou des commentaires HTML.
+
+Exemple :
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exemple de directive AngularJS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+  <div ng-controller="myCtrl">
+    <p ma-directive="{{text}}"></p>
+  </div>
+
+  <script>
+    var app = angular.module('myApp', []);
+
+    app.directive('maDirective', function() {
+      return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+          var text = attrs.maDirective;
+          element.text(text.toUpperCase());
+        }
+      };
+    });
+
+    app.controller('myCtrl', function($scope) {
+      $scope.text = "Hello, World!";
+    });
+  </script>
+</body>
+</html>
+```
+
+En exécutant ce code, le résultat affiché dans la page web sera "HELLO, WORLD!".
+
+8) L'injection de dépendance en AngularJS permet de faciliter la gestion des dépendances entre différents composants.
+
+Exemple :
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exemple d'injection de dépendance AngularJS</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+  <div ng-controller="myCtrl">
+    <ul>
+      <li ng-repeat="item in items">{{item}}</li>
+    </ul>
+  </div>
+
+  <script>
+    var app = angular.module('myApp', []);
+
+    app.service('myService', function() {
+      this.getData = function() {
+        return ['item 1', 'item 2', 'item 3'];
+      }
+    });
+
+    app.controller('myCtrl', function($scope, myService) {
+      $scope.items = myService.getData();
+    });
+  </script>
+</body>
+</html>
+```
+
+15) Si j'avais un super pouvoir, je choisirais de courir plus vite (comme flash).
+Cela me permettrai de ne pas prendre les transports, faire du sport, et d'aller d'un point A à un point B en très peu de temps.
